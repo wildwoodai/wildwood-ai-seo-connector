@@ -1,0 +1,13 @@
+{
+  "name": "wildwood-ai-seo-grok-bot",
+  "version": "0.1.0-pre",
+  "description": "Draft connector for explaining saved Wildwood AI website audits. Grok Bot authorization, testing, and marketplace review are pending.",
+  "author": {
+    "name": "Wildwood AI",
+    "email": "jd@wildwooddm.com"
+  },
+  "homepage": "https://wildwoodai.com",
+  "repository": "https://github.com/wildwoodai/wildwood-ai-seo-connector",
+  "license": "MIT",
+  "keywords": ["seo", "website-audit", "small-business", "saved-reports"]
+}

@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "wildwood-ai-seo": {
+      "url": "https://connector-endpoint.example.invalid/mcp",
+      "auth": {
+        "CLIENT_ID": "REPLACE_AFTER_OFFICIAL_REGISTRATION",
+        "scopes": ["audits:read"]
+      }
+    }
+  }
+}
