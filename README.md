@@ -32,7 +32,7 @@ The MCP configuration is deliberately named **`mcp.json.example`**, not `mcp.jso
 
 The example follows Cursor's documented remote-server static OAuth shape: `url`, `auth.CLIENT_ID`, and `auth.scopes`. No client secret, access token, refresh token, or API key belongs in this public package.
 
-Prospective integration partners can read the [existing MCP service overview](docs/mcp-api.md). It documents the current production contract and clearly identifies the unregistered Muse and Grok Bot clients; it does not make this draft install-ready.
+Prospective integration partners can read the [MCP service overview](docs/mcp-api.md). It documents the deployed paid-Basic contract and clearly identifies the unregistered Muse and Grok Bot clients; it does not make this draft install-ready. Confirm the active contract with the connected service's `tools/list`.
 
 ## Configuration and release gates
 
@@ -51,7 +51,9 @@ Do not rename the example to `mcp.json` or claim installation is supported until
 
 Starting live audits is **planned, not available in this package**. If implemented and accepted later, it must require separately granted permission and the customer reviewing and approving each audit request on Wildwood AI before starting it. Saved-report questions must never start a new audit.
 
-This draft provides no purchase tool, checkout, credit purchase, automated audit schedule, or payment action. Cursor's marketplace terms prohibit charging for access to or use of the plugin through its marketplace. Whether a future integration may consume previously purchased external audit allowances still needs reviewer clarification. This package does not promise that feature or change Wildwood AI's website billing.
+The deployed account contract uses previously purchased Basic, Pro, or Platinum audit credits, shared with the customer's Wildwood AI account. Basic replaces the monthly free allowance for new audits. Previously saved Free reports remain readable; this update does not delete them or turn them into new audit credits. The server update does not enable this draft connector to start audits or establish Muse or Grok Bot availability.
+
+This draft provides no purchase tool, checkout, credit purchase, automated audit schedule, or payment action. Cursor's marketplace terms prohibit charging for access to or use of the plugin through its marketplace. Whether a future integration may consume previously purchased external Basic, Pro, or Platinum credits still needs reviewer clarification. This package does not promise that feature or change Wildwood AI's website billing.
 
 ## Privacy and boundaries
 

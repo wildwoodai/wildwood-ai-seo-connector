@@ -1,8 +1,8 @@
 # Wildwood AI MCP API — integration overview
 
-Updated October 1, 2026. This page describes Wildwood AI's existing production MCP service for prospective integration partners.
+Updated October 1, 2026. This page describes Wildwood AI's deployed MCP service for prospective integration partners, including the paid-Basic contract. Confirm the active schemas through the connected service's `tools/list`, not this document alone. Server deployment does not establish native partner availability or marketplace approval.
 
-**The production service currently accepts only its predefined ChatGPT OAuth client. Muse and Grok Bot clients are not registered and cannot connect yet.** Their exact callbacks, account-linking behavior, and native testing remain pending. This documentation is not an installation guide or a claim of marketplace submission, approval, or compatibility.
+**The production service currently accepts only reviewed ChatGPT OAuth clients. Muse and Grok Bot clients are not registered and cannot connect yet.** Their exact callbacks, account-linking behavior, and native testing remain pending. This documentation is not an installation guide or a claim of marketplace submission, approval, or compatibility.
 
 ## Endpoint and access
 
@@ -45,7 +45,9 @@ Use MCP `tools/list` after initialization and authorized connection for the auth
 | `list_my_seo_audits` | Optional `limit` (1–20) and opaque `cursor`. | Owned reports, newest first, with `nextCursor` for further pages. |
 | `get_my_seo_audit` | Required `auditId`. | Business/report overview, dates, section availability, status, and report link. |
 | `read_my_seo_audit_section` | Required `auditId`, `sectionId`; optional `offset` (0–100000), `limit` (1–20). | Saved findings and recommendations, measurement limits, and `pagination.nextOffset`. |
-| `get_my_audit_allowance` | `{}` | Available monthly free audit and existing Pro/Platinum audit counts; no credit use or payment. |
+| `get_my_audit_allowance` | `{}` | Existing purchased credit counts as `basicAvailable`, `proAvailable`, and `platinumAvailable`; no credit use or payment. |
+
+The paid-Basic contract has no monthly free allowance for new audits. Credits belong to the connected Wildwood AI account and are shared across approved interfaces; connecting another platform does not create extra credits. Historical Free reports remain readable through the saved-report tools. An unavailable or unrecognized balance must not be treated as a free audit entitlement.
 
 Allowed section identifiers:
 
@@ -62,10 +64,10 @@ Availability depends on the selected report. Results distinguish pending, proces
 
 ### Existing live-audit tools — additional permission required
 
-These tools exist in the production ChatGPT integration. They are **not currently available through Muse or Grok Bot**, and this repository's draft skill is saved-report-only.
+These tools and the Basic package contract below are deployed in the production ChatGPT integration. They are **not currently available through Muse or Grok Bot**, and this repository's draft skill is saved-report-only. Deployment is not a claim of marketplace listing or approval.
 
-- `prepare_live_seo_audit`: Requires `websiteUrl`, `businessName`, `businessCategory`, and `packageType` (`free`, `pro`, or `platinum`). Returns an expiring draft identifier and owner-review link. Preparation saves a draft but does not scan the website or use an allowance.
-- `start_approved_seo_audit`: Requires the returned `intentId`. The account owner must first sign in on Wildwood AI, review the exact details and allowance use, and approve the request. Approval is not an MCP tool operation. The server verifies the owner, grant, expiry, approval, and available allowance before starting. Retrying the same approved intent returns the same audit without another allowance use.
+- `prepare_live_seo_audit`: Requires `websiteUrl`, `businessName`, `businessCategory`, and `packageType` (`basic`, `pro`, or `platinum`). Returns an expiring draft identifier and owner-review link. Preparation saves a draft but does not scan the website or use a credit. New `free` requests are not supported by this contract.
+- `start_approved_seo_audit`: Requires the returned `intentId`. The account owner must first sign in on Wildwood AI, review the exact details and selected package's credit use, and approve the request. Approval is not an MCP tool operation. The server verifies the owner, grant, expiry, approval, and available credit before starting. Retrying the same approved intent returns the same audit without another credit use. A draft prepared under the old Free allowance must not be started after the paid-Basic transition; a Free audit already started remains available as a saved report.
 
 Drafts expire after 30 minutes. A successful start means the audit was accepted, not that every check finished. Starting contacts the public business website and the normal audit providers. Neither tool buys credits, charges a payment method, or changes a website. Platform permission to consume existing paid allowances must be confirmed separately before offering this on another marketplace.
 
