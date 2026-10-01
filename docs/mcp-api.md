@@ -4,6 +4,12 @@ Updated October 1, 2026. This page describes Wildwood AI's deployed MCP service 
 
 **The production service currently accepts only reviewed ChatGPT OAuth clients. Muse and Grok Bot clients are not registered and cannot connect yet.** Their exact callbacks, account-linking behavior, and native testing remain pending. This documentation is not an installation guide or a claim of marketplace submission, approval, or compatibility.
 
+## Requested Muse connector name
+
+The publisher requests **SEO Ranking & Auditor by Wildwood AI** as the Muse display name for the existing development-stage application previously submitted as **Wildwood AI**. This 35-character name fits the 80-character limit exposed by Muse's connector-name form on October 1, 2026. If a stricter final listing limit applies, use **SEO Ranking & Auditor** instead. The company/developer remains **Wildwood AI**.
+
+This note updates the technical documentation linked in the application; it does not claim that Muse has amended or approved the submitted record. No duplicate application, new OAuth registration or connector access is created. Existing endpoint addresses and technical identifiers remain unchanged. This naming request does not rename the separate Grok/Cursor draft package.
+
 ## Endpoint and access
 
 | Item | Address / requirement |
