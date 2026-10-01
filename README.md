@@ -21,6 +21,7 @@ No connected Grok Bot account or working Grok Bot audit flow is included in this
 
 ```text
 .cursor-plugin/plugin.json
+docs/mcp-api.md
 skills/explain-wildwood-audit/SKILL.md
 mcp.json.example
 README.md
@@ -30,6 +31,8 @@ LICENSE
 The MCP configuration is deliberately named **`mcp.json.example`**, not `mcp.json`. The manifest does not reference it. It uses a non-resolving `.invalid` example endpoint and an explicit unregistered client-ID placeholder; they are not production settings. Installing this draft must not be presented as creating a working Wildwood AI connection.
 
 The example follows Cursor's documented remote-server static OAuth shape: `url`, `auth.CLIENT_ID`, and `auth.scopes`. No client secret, access token, refresh token, or API key belongs in this public package.
+
+Prospective integration partners can read the [existing MCP service overview](docs/mcp-api.md). It documents the current production contract and clearly identifies the unregistered Muse and Grok Bot clients; it does not make this draft install-ready.
 
 ## Configuration and release gates
 
